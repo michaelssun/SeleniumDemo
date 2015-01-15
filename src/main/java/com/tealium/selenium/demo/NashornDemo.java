@@ -1,12 +1,17 @@
 package com.tealium.selenium.demo;
 
+import java.io.InputStreamReader;
+
 import javax.script.Bindings;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 public class NashornDemo {
 	private static final String ZXCVBN_PATH = "/META-INF/resources/webjars/zxcvbn/1.0/zxcvbn.js";
+	private static final String JS_LIB = ".js";
+	
 	 
 	  private final ScriptEngine engine;
 	 
@@ -21,7 +26,7 @@ public class NashornDemo {
 	 
 	    // 3.
 	    try {
-	      engine.eval(getResourceContents(ZXCVBN_PATH));
+	      engine.eval(new InputStreamReader(NashornDemo.class.getResourceAsStream(JS_LIB)));
 	    } catch (ScriptException e) {
 	      throw new RuntimeException(e);
 	    }
