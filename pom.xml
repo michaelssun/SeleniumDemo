@@ -77,11 +77,17 @@
 			<version>6.8</version>
 			<scope>test</scope>
 		</dependency>
+		<!--  
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>zxcvbn</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mozilla</groupId>
+			<artifactId>rhino</artifactId>
+			<version>1.7R4</version>
+		</dependency>-->
 	</dependencies>
 
 	<profiles>

@@ -1,5 +1,5 @@
 var validation = 0;
-var sample_id = 286;
+var sample_id = 308;
 if (typeof validation === 'undefined') {
     validation = 1;
     var sample_id = 0;
@@ -887,107 +887,22 @@ JSON.stringify = JSON.stringify || function(obj) {
     }
 };txStart();
 
-c.configureSSL("TLSv1", false, false);
-var removePopup = function(){
-    jQueryAny('jQuery("#fsr_modalOverlay").remove();');
-};
-var url = 'http://development.web.sallybeauty.demandware.net/';
-stepStart("Get Homepage","content");
-    open(url);
-    removePopup();
-    if(isVisible("//div[@id='emailsignupform']//button[@id='email_cancel-btn']")){
-        click("//div[@id='emailsignupform']//button[@id='email_cancel-btn']");
-    }
-    removePopup();  
+updateUserAgent("sosta/5.0");
+
+stepStart('Go To Homepage', 'home');
+	open('http://ipv.neimanmarcus.com/category/poc/tms/tealiumIndex.html');
 stepEnd();
 
-stepStart("Click on Section (Hair)","category");
-    removePopup();
-    jQueryAny('jQuery("#navigation").show();');
-    // click("//a[contains(text(), 'Hair')][@class='level-1']","takeSS");
-    removePopup();
-    jclick("a.level-1:contains('Hair')", "takeSS");
-    removePopup();
+stepStart('Go To Category Page', 'category');
+	open('http://ipv.neimanmarcus.com/category/poc/tms/tealiumCategory.html');
 stepEnd();
 
-stepStart("Click on Category (Conditioners)","category");
-    removePopup();
-    click("//a[text()='Conditioners']","takeSS");
-    removePopup();
+stepStart('Go To Suite Page', 'suite');
+	open('http://ipv.neimanmarcus.com/category/poc/tms/tealiumSuite.html');
 stepEnd();
 
-stepStart("Search for Product","search");
-    removePopup();
-    type("//input[@id='q']", "Bath Secret");
-    removePopup();
-    click("//input[contains(@class,'rightside')][@type='submit']","takeSS");
-    removePopup();
-stepEnd();
-
-stepStart("Open Bath Mask","product");
-    removePopup();
-    open(url + "Herbal-Eye-Mask/SBS-491084,default,pd.html#q=bath+secret&start=4");
-    removePopup();
-stepEnd();
-
-stepStart("Click Add To Basket","cart_add");
-    removePopup();
-    click("//button[@id='add-to-cart']","takeSS");
-    removePopup();
-stepEnd();
-
-stepStart("Click View Basket","checkout");
-    jQueryAny('jQuery(".mini-cart-content").show()');
-    removePopup();
-    stepScreenShot('jQuery("a:contains(\'View Basket\')")');
-    jQueryAny('jQuery(".mini-cart-content").show()');
-    removePopup();
-    click("//a[text()='View Basket']");
-    removePopup();
-stepEnd();
-
-stepStart("Click Checkout","content");
-    removePopup();
-    click("//button[@value='Checkout']","takeSS");
-    removePopup();
-stepEnd();
-
-stepStart("Click Guest Checkout","checkout");
-    removePopup();
-    click("//button[@value='guest checkout']","takeSS");
-    removePopup();
-stepEnd();
-
-stepStart("Enter Shipping Info","checkout");
-    removePopup();
-    type("//input[contains(@name,'firstName')]",'Tealium');
-    type("//input[contains(@name,'lastName')]",'Test');
-    type("//input[contains(@name,'address1')]",'11085 Torreyana Road');
-    select("//select[contains(@name,'country')]",'United States');    
-    type("//input[contains(@name,'city')]",'San Diego');
-    select("//select[contains(@name,'state')]",'California');
-    type("//input[contains(@name,'zip')]",'92121');
-    type("//input[contains(@name,'phone')]",'5555555555');
-    type("//input[contains(@name,'emailAddress')]",'tealiumtest@tealiumtest.com');
-    removePopup();
-    click('//button[@value="continue with checkout"]',"takeSS");
-    removePopup();
-stepEnd();
-
-stepStart("Enter Billing Info","checkout");
-    removePopup();
-    type("//input[contains(@name,'creditCard_owner')]",'Tealium Test');
-    type("//input[contains(@name,'creditCard_number')]",'4111111111111111');
-    select("//select[contains(@name,'creditCard_year')]",'2020');
-    type("//input[contains(@name,'creditCard_cvn')]",'123');
-    removePopup();
-    click('//button[@value="continue with checkout"]',"takeSS");
-    removePopup();
-stepEnd();
-
-stepStart("Click Submit Order","checkout");
-	removePopup();
-    click('//button[@value="Submit Order"]',"takeSS");
+stepStart('Go To Product Page', 'product');
+	open('http://ipv.neimanmarcus.com/category/poc/tms/tealiumProduct.html');
 stepEnd();
 
 txEnd();
