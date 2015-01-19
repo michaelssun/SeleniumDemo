@@ -17,6 +17,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import biz.neustar.wpm.api.WebSocketMessage.Type;
 
@@ -52,8 +54,8 @@ public class DanburymintSenario1 {
 
 		// driver = new FirefoxDriver(); //for local check
 
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.manage().window().setSize(new Dimension(1920, 1080));
 
 		driver.get(BASE_URL);
@@ -64,6 +66,9 @@ public class DanburymintSenario1 {
 		System.out.println("we=" + we);
 		we = js.executeScript("return utag_data;");
 		System.out.println("we1=" + we);
+		
+		// wait 10s for the element available in page		
+		WebElement element = (new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#houseName")));
 		 
 //		js.executeScript("document.getElementById('blueBoxCode').value='clock';");
 //		WebElement element = driver.findElement(By.xpath("//div[@id=\'blueBoxAjax\']/a[@class=\'button postfix reversed blue-box-search\']"));
