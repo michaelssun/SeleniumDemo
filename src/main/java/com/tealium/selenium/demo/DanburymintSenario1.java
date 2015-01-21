@@ -68,7 +68,7 @@ public class DanburymintSenario1 {
 		System.out.println("we1=" + we);
 		
 		// wait 10s for the element available in page		
-		WebElement element = (new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#houseName")));
+		//WebElement element = (new WebDriverWait(driver, 30)).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input#houseName")));
 		 
 //		js.executeScript("document.getElementById('blueBoxCode').value='clock';");
 //		WebElement element = driver.findElement(By.xpath("//div[@id=\'blueBoxAjax\']/a[@class=\'button postfix reversed blue-box-search\']"));
